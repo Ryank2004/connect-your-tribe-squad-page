@@ -34,6 +34,7 @@ app.get('/', function (request, response) {
   })
 })
 
+
 // Maak een POST route voor de index
 app.post('/', function (request, response) {
   // Er is nog geen afhandeling van POST, redirect naar GET op /
@@ -49,8 +50,18 @@ app.get('/person/:id', function (request, response) {
   })
 })
 
+// Dit is een GET route voor de squadpagina
+app.get('/squad', function (request, response) {
+ 
+  fetchJson('https://fdnd.directus.app/items/person/').then((apiData) => {
+    response.render('squad', {persons: apiData.data})
+  })
+
+})
+
+
 // Stel het poortnummer in waar express op moet gaan luisteren
-app.set('port', process.env.PORT || 8000)
+app.set('port', process.env.PORT || 8001)
 
 // Start express op, haal daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {

@@ -1,0 +1,21 @@
+
+<h2>Students</h2>
+<!-- <ul>
+  <% persons.forEach(person => { %>
+    <li><a href="./person/<%= person.id %>"><%= person.name %></a>, id <%= person.id %>, squad_id <%= person.squad_id %>
+    
+    <img src="/assets/<%= person.id %>.jpg">
+    </li>
+  <% }) %>
+</ul> -->
+
+<ul>
+    <% persons.forEach(person => {
+      if(person.squad_id === 3 && person.role.includes("member")) { %>
+        <li><a href="./person/<%= person.id %>"><%= person.name %></a>, id <%= person.id %>, squad_id <%= person.squad_id %>
+        
+        <img src="/assets/<%= person.id %>.jpg">
+        </li>
+      <% }
+    }) %>
+  </ul>
