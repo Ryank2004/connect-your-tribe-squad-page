@@ -1,21 +1,21 @@
+<section class="squadpage">
 
-<h2>Students</h2>
-<!-- <ul>
-  <% persons.forEach(person => { %>
-    <li><a href="./person/<%= person.id %>"><%= person.name %></a>, id <%= person.id %>, squad_id <%= person.squad_id %>
+    <div class="squadpage-content">
+        <h1 class="h1">Squadpage</h1>
+            <h2 class="h2">Students</h2>
+    </div>
     
-    <img src="/assets/<%= person.id %>.jpg">
-    </li>
-  <% }) %>
-</ul> -->
-
-<ul>
+<ul class="card-list">
     <% persons.forEach(person => {
       if(person.squad_id === 3 && person.role.includes("member")) { %>
-        <li><a href="./person/<%= person.id %>"><%= person.name %></a>, id <%= person.id %>, squad_id <%= person.squad_id %>
-        
-        <img src="/assets/<%= person.id %>.jpg">
+        <li class="card">
+            <div class="mugshot-container">
+                <img class="mugshot" src="/assets/<%= person.id %>.jpg">
+            </div>
+            <p> <%= person.name %> <%= person.prefix %> <%= person.surname %> </p>
         </li>
       <% }
     }) %>
-  </ul>
+</ul>
+
+</section>
